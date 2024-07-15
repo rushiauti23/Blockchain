@@ -18,7 +18,7 @@ public class RushChain {
         System.out.println(blockChainJson);
 
 
-
+        System.out.println(isChainValid());
 
     }
 
@@ -26,7 +26,7 @@ public class RushChain {
         Block currentBlock;
         Block previousBlock;
 
-        for (int i = 0; i<blockChain.size();i++) {
+        for (int i = 1; i<blockChain.size();i++) {
             currentBlock = blockChain.get(i);
             previousBlock = blockChain.get(i-1);
 
@@ -35,7 +35,9 @@ public class RushChain {
                 return false;
             }
 
-            if(!previousBlock.hash.equals(currentBlock.hash)){
+
+
+            if(!previousBlock.hash.equals(currentBlock.previousHash)){
                 System.out.println("Current hash and previous hash are not equal");
                 return false;
             }
